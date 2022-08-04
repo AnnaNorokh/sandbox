@@ -1,5 +1,8 @@
-#include <stdio.h>
 #include <iostream>
 
-void var_swap(int* xp, int* yp);
-int change_bit_in_num(int num, int bit_num, int bit_value);
+enum BitValue {bit_true, bit_false};
+
+template<typename T>
+void var_swap(T&, T&);
+
+int change_bit_in_num(int num, unsigned char bit_num, BitValue bit_value);
