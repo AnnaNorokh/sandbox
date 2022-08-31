@@ -35,8 +35,9 @@ int main (int argc, char *argv[])
 
     // change bit test 
     assert(change_bit_in_num(0b000101, 1, TRUE) == 0b000111);
-    assert(change_bit_in_num(0b000001, 1, TRUE) == 0b000011);
+    assert(change_bit_in_num(0b0000010, 0, TRUE) == 0b0000011);
     assert(change_bit_in_num(0b000101, 0, FALSE) == 0b000100);
+    assert(change_bit_in_num(0b000101, 1, FALSE) == 0b000101);
     assert(change_bit_in_num(0b000000, 0, TRUE) == 0b000001);
 
     return 0;
@@ -52,7 +53,6 @@ void var_swap(T& x, T& y)
 
 int change_bit_in_num(int num, unsigned char bit_num, Bit bit_value)
 {
-    num ^= (1 << bit_num);
-
-    return num;
+    return ((num & ~(1<<bit_num)) | (bit_value << bit_num));
 }
+
